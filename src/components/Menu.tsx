@@ -1,11 +1,11 @@
-import React from "react";
-import { BiMoviePlay } from "react-icons/bi";
 import { AiFillHome, AiOutlineHeart } from "react-icons/ai";
 import { BsSearch, BsInstagram } from "react-icons/bs";
 import { FaRegCompass } from "react-icons/fa";
-import { CiSquarePlus, CiMenuBurger } from "react-icons/ci";
+import { CiSquarePlus } from "react-icons/ci";
 import { FiMessageSquare } from "react-icons/fi";
+import { RxHamburgerMenu } from "react-icons/rx";
 import NavItems from "./NavItems";
+import { useState } from "react";
 
 const Menu = () => {
     const icons = [
@@ -17,25 +17,37 @@ const Menu = () => {
         { name: "Notifications", icon: <AiOutlineHeart /> },
         { name: "Create", icon: <CiSquarePlus /> },
     ];
-
+    const [currentLink, setCurrentLink] = useState<string>("Home");
     const displayIcons = icons.map((items, id) => (
-        <NavItems key={id} name={items.name} icon={items.icon} />
+        <div onClick={() => setCurrentLink(items.name)}>
+            <NavItems
+                key={id}
+                name={items.name}
+                icon={items.icon}
+                active={currentLink}
+            />
+        </div>
     ));
 
     return (
-        <div className='flex flex-col p-5 justify-between h-screen border-r w-fit'>
+        <div className='flex flex-col p-5 justify-between h-screen border-r w-fit lg:min-w-[250px]'>
             <div className='flex flex-col gap-1'>
                 {displayIcons}
 
-                <div>
-                    <NavItems key='profile' name={"Profile"} />
+                <div onClick={() => setCurrentLink("Profile")}>
+                    <NavItems
+                        key='profile'
+                        name={"Profile"}
+                        active={currentLink}
+                    />
                 </div>
             </div>
-            <div>
+            <div onClick={() => setCurrentLink("More")}>
                 <NavItems
                     key='settings'
                     name={"More"}
-                    icon={<CiMenuBurger />}
+                    icon={<RxHamburgerMenu />}
+                    active={currentLink}
                 />
             </div>
         </div>

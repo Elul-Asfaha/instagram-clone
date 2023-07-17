@@ -1,22 +1,22 @@
 import React from "react";
-const NavItems = ({ name, icon }) => {
+type navData = {
+    name: string;
+    icon?: React.ReactNode;
+    active: string;
+};
+const NavItems = ({ name, icon, active }: navData) => {
     const profile = "https://picsum.photos/id/237/200/300";
 
     return (
         <div
             className={`flex gap-5 justify-center lg:justify-start items-center p-3 cursor-pointer rounded-md hover:bg-gray-300 w-full ${
-                name === "Instagram" ? "my-5" : ""
-            }`}
+                name === "Instagram" ? "my-3" : ""
+            } ${active === name ? "font-bold" : ""}`}
         >
             <div className='text-[25px]'>
                 {name === "Profile" ? (
-                    <div className='rounded-full h-[30px] w-[30px] overflow-hidden'>
-                        <img
-                            src={profile}
-                            alt=''
-                            srcset=''
-                            className='container'
-                        />
+                    <div className='rounded-full h-[30px] w-[30px] overflow-hidden  bg-gray-200 '>
+                        <img src={profile} alt='' className='container' />
                     </div>
                 ) : (
                     icon
