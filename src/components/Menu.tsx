@@ -30,7 +30,7 @@ const Menu = () => {
     ));
 
     return (
-        <div className='flex flex-col p-5 justify-between h-screen border-r w-fit lg:min-w-[250px]'>
+        <div className='bg-white flex flex-col p-5 justify-between h-[100vh] border-r w-fit lg:w-[200px]'>
             <div className='flex flex-col gap-1'>
                 {displayIcons}
 
