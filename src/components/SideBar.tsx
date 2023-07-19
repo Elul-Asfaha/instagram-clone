@@ -1,5 +1,5 @@
 import suggestions from "../utility/MOCK_DATA_SUGGESTIONS";
-import SidebarItems from "./sidebarItems";
+import SidebarItems from "./SidebarItems";
 import { LiaCopyright } from "react-icons/lia";
 type suggested = {
     profileName: string;
