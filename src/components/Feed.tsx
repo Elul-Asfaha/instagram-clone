@@ -19,7 +19,7 @@ const Feed = () => {
             <div className=' overscroll-y-auto w-fit flex flex-col gap-y-5 h-fit'>
                 {disp_Data}
             </div>
-            <SideBar profile={"Elul Asfaha"} username={"elul_asfaha"} />
+            <SideBar profileName={"Elul Asfaha"} username={"elul_asfaha"} />
         </div>
     );
 };

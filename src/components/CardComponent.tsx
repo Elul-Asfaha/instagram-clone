@@ -17,6 +17,7 @@ type cardData = {
     like: number;
     caption: string;
 };
+
 const CardComponent = ({
     profile_image,
     profile_name,
@@ -27,9 +28,7 @@ const CardComponent = ({
 }: cardData) => {
     const [likeCount, setLikeCount] = useState<number>(like);
     const [liked, setLiked] = useState<boolean>(false);
-
     const [bookmarked, setBookmarked] = useState<boolean>(false);
-
     const [time, setTime] = useState<number>(14);
     const [newComment, setNewComment] = useState<string>("");
     const handleLike = () => {
@@ -41,10 +40,9 @@ const CardComponent = ({
     const handleBookmark = () => {
         setBookmarked(!bookmarked);
     };
-    newComment && console.log(newComment);
 
     return (
-        <div className='max-w-[345px] min-h-[600px]'>
+        <div className='w-screen sm:max-w-[345px] md:max-w-[500px] min-h-[600px]'>
             <Box
                 sx={{
                     display: "flex",
