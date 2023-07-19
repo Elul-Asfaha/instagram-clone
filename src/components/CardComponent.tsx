@@ -29,7 +29,7 @@ const CardComponent = ({
     const [likeCount, setLikeCount] = useState<number>(like);
     const [liked, setLiked] = useState<boolean>(false);
     const [bookmarked, setBookmarked] = useState<boolean>(false);
-    const [time, setTime] = useState<number>(14);
+    const time = 14;
     const [newComment, setNewComment] = useState<string>("");
     const handleLike = () => {
         liked
@@ -73,7 +73,7 @@ const CardComponent = ({
                 </CardActions>
             </Box>
             <CardMedia
-                sx={{ height: 350 }}
+                sx={{ height: 450 }}
                 image={profile_image}
                 title='green iguana'
             />
@@ -129,8 +129,10 @@ const CardComponent = ({
 
             <Box sx={{ display: "flex", gap: 2 }}>
                 <Typography>
-                    <span className='font-bold'>{profile_name} </span>
-                    {caption}
+                    <p className='text-sm'>
+                        <span className='font-bold'>{profile_name} </span>
+                        {caption}
+                    </p>
                 </Typography>
             </Box>
             <Box>

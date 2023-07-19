@@ -38,7 +38,7 @@ const SideBar = ({ profileName, username }: suggested) => {
                     <p className='font-bold'>{username}</p>{" "}
                     <p> {profileName}</p>
                 </div>
-                <div className='w-fit'>switch</div>
+                <div className='w-fit text-blue-500'>switch</div>
             </div>
 
             <div className='flex justify-between items-center py-3 font-medium'>

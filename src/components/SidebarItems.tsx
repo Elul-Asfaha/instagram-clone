@@ -12,12 +12,12 @@ type sideBarItemTypes = {
 const SidebarItems = ({
     username,
     fullName,
-    followedBy,
-    post,
-    follower,
-    following,
+    // followedBy,
+    // post,
+    // follower,
+    // following,
     isFollower,
-    follow,
+    // follow,
     profileImage,
 }: sideBarItemTypes) => {
     return (
