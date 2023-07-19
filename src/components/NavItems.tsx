@@ -1,6 +1,5 @@
 import { Badge } from "@mui/material";
 import React from "react";
-import { useState } from "react";
 type navData = {
     name: string;
     icon?: React.ReactNode;
@@ -8,7 +7,8 @@ type navData = {
 };
 const NavItems = ({ name, icon, active }: navData) => {
     const profile = "https://picsum.photos/id/237/200/300";
-    const [newNotification, setNewNoticiation] = useState<boolean>(true);
+    const newNotification = true;
+
     return (
         <div
             className={`flex gap-5 justify-center lg:justify-start items-center p-3 cursor-pointer rounded-md hover:bg-gray-100 w-full ${
