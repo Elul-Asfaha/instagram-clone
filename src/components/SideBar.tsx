@@ -23,7 +23,7 @@ const SideBar = ({ profileName, username }: suggested) => {
             />
         ));
     return (
-        <div className='h-fit min-w-[300px] hidden lg:block'>
+        <div className='h-fit min-w-[319px] hidden lg:block'>
             <div className='flex items-center gap-4'>
                 <div className='w-fit'>
                     <div className='h-[50px] w-[50px] rounded-full overflow-hidden'>

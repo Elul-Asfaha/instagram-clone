@@ -42,7 +42,7 @@ const CardComponent = ({
     };
 
     return (
-        <div className='w-screen sm:max-w-[345px] md:max-w-[500px] min-h-[600px]'>
+        <div className='w-screen sm:max-w-[345px] md:max-w-[500px] min-h-[600px] border-b rounded-sm'>
             <Box
                 sx={{
                     display: "flex",
@@ -73,9 +73,9 @@ const CardComponent = ({
                 </CardActions>
             </Box>
             <CardMedia
-                sx={{ height: 450 }}
+                sx={{ height: 500, borderRadius: "3px" }}
                 image={profile_image}
-                title='green iguana'
+                title={profile_name}
             />
             <Box
                 sx={{
@@ -83,7 +83,7 @@ const CardComponent = ({
                     justifyContent: "space-between",
                     marginX: "0px",
                     fontSize: "25px",
-                    paddingY: 1,
+                    paddingY: 2,
                 }}
             >
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
