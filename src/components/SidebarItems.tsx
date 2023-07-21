@@ -1,5 +1,5 @@
 import BreifPreview from "./BreifPreview";
-import React, { useState } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 type sideBarItemTypes = {
     username: string;
