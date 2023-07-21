@@ -54,7 +54,6 @@ const SidebarItems = ({
                 </button>
             </div>
             <BreifPreview
-                id={username}
                 anchor={anchorEl}
                 open={open}
                 close={handlePopoverClose}

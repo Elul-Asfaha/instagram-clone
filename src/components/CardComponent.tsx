@@ -42,7 +42,7 @@ const CardComponent = ({
     };
 
     return (
-        <div className='w-screen sm:max-w-[345px] md:max-w-[500px] min-h-[600px] border-b rounded-sm'>
+        <div className='w-screen sm:max-w-[345px] md:max-w-[450px] min-h-[600px] border-b rounded-sm'>
             <Box
                 sx={{
                     display: "flex",
@@ -50,7 +50,13 @@ const CardComponent = ({
                     justifyContent: "space-between",
                 }}
             >
-                <Box sx={{ display: "flex", gap: "5px", alignItems: "center" }}>
+                <Box
+                    sx={{
+                        display: "flex",
+                        gap: "5px",
+                        alignItems: "center",
+                    }}
+                >
                     <CardMedia
                         sx={{
                             height: "30px",

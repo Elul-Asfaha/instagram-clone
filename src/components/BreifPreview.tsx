@@ -5,7 +5,7 @@ type breifTypes = {
     profileImage: string;
     username: string;
     isFollower: boolean;
-    close: void;
+    close: () => void;
     fullName: string;
     posts: number;
     following: number;
@@ -17,7 +17,7 @@ const BreifPreview = ({
     anchor,
     close,
     username,
-    isFollower,
+    // isFollower,
     profileImage,
     fullName,
     followers,
@@ -43,8 +43,8 @@ const BreifPreview = ({
             onClose={close}
             disableRestoreFocus
         >
-            <div className='p-3'>
-                <div>
+            <div className='flex flex-col gap-2'>
+                <div className='p-3 '>
                     <div
                         className='flex items-center gap-4 text-sm py-1 w-[319px]'
                         id={username}
@@ -80,9 +80,23 @@ const BreifPreview = ({
                         </div>
                     </div>
                 </div>
-                <div>posts</div>
-                <div className='w-full text-white rounded-lg py-1 bg-blue-600 text-center'>
-                    {isFollower ? "Follow back" : "Follow"}
+
+                <div>
+                    {posts === 0 ? (
+                        <div className='flex flex-col items-center'>
+                            <p className='font-bold '>No posts yet</p>
+                            <p>
+                                When {username} shares photos and reels, you'll
+                                see them here.
+                            </p>
+                        </div>
+                    ) : (
+                        <div className='flex border-t-2 gap-1 py-1'>
+                            <div className='flex-1 h-[100px] border border-black'></div>
+                            <div className='flex-1 h-[100px] border border-black'></div>
+                            <div className='flex-1 h-[100px] border border-black'></div>
+                        </div>
+                    )}
                 </div>
             </div>
         </Popover>
