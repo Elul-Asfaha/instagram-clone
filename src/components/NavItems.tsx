@@ -22,7 +22,7 @@ const NavItems = ({ name, icon, active }: navData) => {
                     </div>
                 ) : name === "Messages" || name === "Notifications" ? (
                     <Badge
-                        badgeContent={0}
+                        badgeContent={1}
                         color='warning'
                         invisible={!newNotification}
                     >
