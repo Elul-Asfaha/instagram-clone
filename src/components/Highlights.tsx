@@ -16,8 +16,8 @@ const Highlights = () => {
         </div>
     ));
     return (
-        <div className='max-w-[500px] overflow-auto overscroll-x-auto scrollbar-hide'>
-            <div className='flex gap-1 w-fit'>{display_highlight}</div>
+        <div className='w-screen sm:max-w-[500px] overflow-auto overscroll-x-auto scrollbar-hide'>
+            <div className='flex gap-1 w-fit over'>{display_highlight}</div>
         </div>
     );
 };
