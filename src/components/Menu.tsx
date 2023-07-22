@@ -18,9 +18,8 @@ const Menu = () => {
     ];
     const [currentLink, setCurrentLink] = useState<string>("Home");
     const displayIcons = icons.map((items, id) => (
-        <div onClick={() => setCurrentLink(items.name)}>
+        <div key={id} onClick={() => setCurrentLink(items.name)}>
             <NavItems
-                key={id}
                 name={items.name}
                 icon={items.icon}
                 active={currentLink}

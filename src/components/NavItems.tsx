@@ -1,5 +1,6 @@
 import { Badge } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
+import { newPostContext } from "../App";
 type navData = {
     name: string;
     icon?: React.ReactNode;
@@ -8,12 +9,18 @@ type navData = {
 const NavItems = ({ name, icon, active }: navData) => {
     const profile = "https://picsum.photos/id/237/200/300";
     const newNotification = true;
+    const newPostToggler = useContext(newPostContext);
 
     return (
         <div
             className={`flex gap-5 justify-center lg:justify-start items-center p-3 cursor-pointer rounded-md hover:bg-gray-100 w-full ${
                 name === "Instagram" ? "my-3" : ""
             } ${active === name ? "font-bold" : ""}`}
+            onClick={
+                name === "Create"
+                    ? () => newPostToggler.handleNewPostValid()
+                    : ""
+            }
         >
             <div className='text-[25px]'>
                 {name === "Profile" ? (
