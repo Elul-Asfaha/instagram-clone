@@ -4,7 +4,11 @@ import Create from "./components/Create.tsx";
 import { Route, Routes } from "react-router-dom";
 import { useState, createContext } from "react";
 
-export const newPostContext = createContext();
+type PostProviderType = {
+    handleNewPostInvalid: () => void;
+    handleNewPostValid: () => void;
+};
+export const newPostContext = createContext<PostProviderType | null>(null);
 function App() {
     const [newPostToggle, setNewPostToggle] = useState<boolean>(false);
     const handleNewPostInvalid = () => {

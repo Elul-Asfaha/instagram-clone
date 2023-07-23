@@ -18,8 +18,8 @@ const NavItems = ({ name, icon, active }: navData) => {
             } ${active === name ? "font-bold" : ""}`}
             onClick={
                 name === "Create"
-                    ? () => newPostToggler.handleNewPostValid()
-                    : ""
+                    ? () => newPostToggler?.handleNewPostValid()
+                    : () => console.log("")
             }
         >
             <div className='text-[25px]'>
