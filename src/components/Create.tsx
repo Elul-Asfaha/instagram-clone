@@ -1,20 +1,27 @@
 import { useCallback, useState, useContext } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { MdPermMedia, MdKeyboardBackspace } from "react-icons/md";
-import { useDropzone } from "react-dropzone";
+import { DropEvent, FileRejection, useDropzone } from "react-dropzone";
 import { newPostContext } from "../App";
 
 const Create = () => {
     const newPostToggler = useContext(newPostContext);
-    const [uploaded, setUploaded] = useState<[] | null>(null);
-    const onDrop = useCallback((acceptedFiles: []) => {
-        setUploaded(acceptedFiles);
-    }, []);
+    const [uploaded, setUploaded] = useState<[{ path: string }]>();
+    const onDrop = useCallback(
+        <T extends File>(
+            acceptedFiles: T[] | [],
+            fileRejections?: FileRejection[],
+            event?: DropEvent
+        ) => {
+            setUploaded(acceptedFiles);
+        },
+        []
+    );
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
         onDrop,
     });
     const handleClearUpload = () => {
-        setUploaded(null);
+        setUploaded(undefined);
     };
     return (
         <div className='fixed bg-black/70 flex justify-center items-center top-0 bottom-0 w-full '>
