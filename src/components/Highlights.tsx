@@ -6,10 +6,11 @@ const Highlights = () => {
     const handleStoryModalOpen = () => {
         setShowStoryModal(!showStoryModal);
     };
+
     const handleStoryModalClose = () => {
         setShowStoryModal(false);
-        console.log(showStoryModal);
     };
+
     const display_highlight = highlights_data.map((items) => (
         <div
             key={items.username}
@@ -25,15 +26,18 @@ const Highlights = () => {
             <p className='max-w-[75px] text-center'>{items.username}</p>
         </div>
     ));
+
     return (
         <div className='w-screen lg:max-w-[500px] overflow-auto overscroll-x-auto scrollbar-hide px-2'>
             <div onClick={handleStoryModalOpen} className='flex gap-1 w-fit'>
                 {display_highlight}
             </div>
-            <ViewStory
-                handleStoryModalClose={handleStoryModalClose}
-                showStoryModal={showStoryModal}
-            />
+            {showStoryModal && (
+                <ViewStory
+                    handleStoryModalClose={handleStoryModalClose}
+                    showStoryModal={showStoryModal}
+                />
+            )}
         </div>
     );
 };

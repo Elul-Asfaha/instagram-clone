@@ -1,14 +1,17 @@
 import { AiOutlineHome, AiOutlineHeart } from "react-icons/ai";
-import { BsSearch, BsInstagram } from "react-icons/bs";
+import { BsInstagram, BsSearch } from "react-icons/bs";
 import { FaRegCompass } from "react-icons/fa";
 import { CiSquarePlus } from "react-icons/ci";
 import { FiMessageSquare } from "react-icons/fi";
-import { RxHamburgerMenu } from "react-icons/rx";
 import NavItems from "./NavItems";
 import { useState } from "react";
+import SettingsComponent from "./SettingsComponent";
 const Menu = () => {
     const icons = [
-        { name: "Instagram", icon: <BsInstagram /> },
+        {
+            name: "Instagram",
+            icon: <BsInstagram />,
+        },
         { name: "Home", icon: <AiOutlineHome /> },
         { name: "Search", icon: <BsSearch /> },
         { name: "Discover", icon: <FaRegCompass /> },
@@ -17,6 +20,7 @@ const Menu = () => {
         { name: "Create", icon: <CiSquarePlus /> },
     ];
     const [currentLink, setCurrentLink] = useState<string>("Home");
+
     const displayIcons = icons.map((items, id) => (
         <div key={id} onClick={() => setCurrentLink(items.name)}>
             <NavItems
@@ -41,14 +45,8 @@ const Menu = () => {
                         />
                     </div>
                 </div>
-                <div onClick={() => setCurrentLink("More")}>
-                    <NavItems
-                        key='settings'
-                        name={"More"}
-                        icon={<RxHamburgerMenu />}
-                        active={currentLink}
-                    />
-                </div>
+
+                <SettingsComponent active={currentLink} />
             </div>
         </div>
     );

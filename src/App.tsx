@@ -18,7 +18,7 @@ function App() {
         setNewPostToggle(true);
     };
     return (
-        <div className='min-screen overscroll-y-none-auto flex'>
+        <div className='screen flex'>
             <newPostContext.Provider
                 value={{ handleNewPostInvalid, handleNewPostValid }}
             >
