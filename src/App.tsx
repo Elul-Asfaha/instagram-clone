@@ -3,6 +3,7 @@ import Menu from "./components/Menu.tsx";
 import Create from "./components/Create.tsx";
 import { Route, Routes } from "react-router-dom";
 import { useState, createContext } from "react";
+import Profile from "./components/Profile.tsx";
 
 type PostProviderType = {
     handleNewPostInvalid: () => void;
@@ -18,13 +19,14 @@ function App() {
         setNewPostToggle(true);
     };
     return (
-        <div className='screen flex'>
+        <div className='flex'>
             <newPostContext.Provider
                 value={{ handleNewPostInvalid, handleNewPostValid }}
             >
                 <Menu />
                 <Routes>
                     <Route path='/' element={<Feed />} />
+                    <Route path='/profile' element={<Profile />} />
                 </Routes>
                 {newPostToggle && <Create />}
             </newPostContext.Provider>

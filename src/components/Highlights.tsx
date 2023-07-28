@@ -28,7 +28,7 @@ const Highlights = () => {
     ));
 
     return (
-        <div className='w-screen lg:max-w-[500px] overflow-auto overscroll-x-auto scrollbar-hide px-2'>
+        <div className='w-full md:max-w-[600px] overflow-auto overscroll-x-auto scrollbar-hide pl-5 md:pl-0 md:pr-0 pr-3'>
             <div onClick={handleStoryModalOpen} className='flex gap-1 w-fit'>
                 {display_highlight}
             </div>
