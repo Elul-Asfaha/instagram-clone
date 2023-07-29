@@ -33,7 +33,7 @@ const Menu = () => {
 
     return (
         <div className='relative hidden md:block'>
-            <div className='fixed bg-white flex flex-col px-2 lg:5 justify-between h-[100vh] border-r w-fit lg:w-[17.72%]'>
+            <div className='fixed bg-white flex flex-col px-2 justify-between h-[100vh] border-r w-fit lg:w-[17.72%]'>
                 <div className='flex flex-col gap-1'>
                     {displayIcons}
 

@@ -1,27 +1,31 @@
 import { useCallback, useState, useContext } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { MdPermMedia, MdKeyboardBackspace } from "react-icons/md";
-import { DropEvent, FileRejection, useDropzone } from "react-dropzone";
+import { useDropzone } from "react-dropzone";
 import { newPostContext } from "../App";
-
+type CreateType = {
+    preview: string;
+};
 const Create = () => {
     const newPostToggler = useContext(newPostContext);
-    const [uploaded, setUploaded] = useState<[{ path: string }]>();
-    const onDrop = useCallback(
-        <T extends File>(
-            acceptedFiles: T[] | [],
-            fileRejections?: FileRejection[],
-            event?: DropEvent
-        ) => {
-            setUploaded(acceptedFiles);
-        },
-        []
-    );
+    const [uploaded, setUploaded] = useState<CreateType[]>([]);
+    const onDrop = useCallback(<T extends File>(acceptedFiles: T[] | []) => {
+        if (acceptedFiles?.length) {
+            setUploaded((previousFiles) => [
+                ...previousFiles,
+                ...acceptedFiles.map((file) =>
+                    Object.assign(file, {
+                        preview: URL.createObjectURL(file),
+                    })
+                ),
+            ]);
+        }
+    }, []);
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
         onDrop,
     });
     const handleClearUpload = () => {
-        setUploaded(undefined);
+        setUploaded([]);
     };
     return (
         <div className='fixed bg-black/70 flex justify-center items-center top-0 bottom-0 w-full '>
@@ -32,7 +36,7 @@ const Create = () => {
                 <AiOutlineClose />
             </button>
 
-            {!uploaded ? (
+            {!uploaded.length ? (
                 <div className='rounded-xl text-black w-[85%] min-w-[300px] md:w-[50%] h-[400px] md:h-[50%] bg-white'>
                     <p className='text-center border-b py-4 font-semibold'>
                         Create new post
@@ -60,21 +64,25 @@ const Create = () => {
                 </div>
             ) : (
                 <div className='rounded-xl text-black w-[85%] min-w-[300px] md:w-[50%] h-[400px] md:h-[50%] bg-white'>
-                    <div
-                        onClick={() => handleClearUpload()}
-                        className='text-left text-2xl px-3 border-b py-4 font-semibold cursor-pointer'
-                    >
-                        <MdKeyboardBackspace />
+                    <div className='flex items-center justify-between font-semibold px-3'>
+                        <div
+                            onClick={() => handleClearUpload()}
+                            className='text-left text-2xl border-b py-4  cursor-pointer'
+                        >
+                            <MdKeyboardBackspace />
+                        </div>
+                        <div className='text-lg cursor-pointer'>Post</div>
                     </div>
                     <div className='h-full'>
                         <div className='text-center flex w-full bg-gray-200 h-full flex-col items-center justify-center gap-4'>
-                            {uploaded != null && (
-                                <img
-                                    src={uploaded[0]?.path}
-                                    alt=''
-                                    className='container bg-red-200 h-full w-full'
-                                />
-                            )}
+                            {uploaded != null &&
+                                uploaded.map((file) => (
+                                    <img
+                                        src={file?.preview}
+                                        alt=''
+                                        className='container bg-red-200 h-full w-full'
+                                    />
+                                ))}
                         </div>
                     </div>
                 </div>
