@@ -17,7 +17,7 @@ const BreifPreview = ({
     anchor,
     close,
     username,
-    // isFollower,
+    isFollower,
     profileImage,
     fullName,
     followers,
@@ -43,10 +43,10 @@ const BreifPreview = ({
             onClose={close}
             disableRestoreFocus
         >
-            <div className='flex flex-col gap-2'>
-                <div className='p-3 '>
+            <div className='flex flex-col gap-3 py-3  w-[319px]'>
+                <div className='px-2 flex flex-col gap-5'>
                     <div
-                        className='flex items-center gap-4 text-sm py-1 w-[319px]'
+                        className='flex items-center gap-3 text-sm py-1'
                         id={username}
                     >
                         <div className='w-fit'>
@@ -83,7 +83,7 @@ const BreifPreview = ({
 
                 <div>
                     {posts === 0 ? (
-                        <div className='flex flex-col items-center'>
+                        <div className='flex flex-col p-2 border-y-2 items-center'>
                             <p className='font-bold '>No posts yet</p>
                             <p>
                                 When {username} shares photos and reels, you'll
@@ -91,12 +91,26 @@ const BreifPreview = ({
                             </p>
                         </div>
                     ) : (
-                        <div className='flex border-t-2 gap-1 py-1'>
-                            <div className='flex-1 h-[100px] border border-black'></div>
-                            <div className='flex-1 h-[100px] border border-black'></div>
-                            <div className='flex-1 h-[100px] border border-black'></div>
+                        <div className='flex gap-1 py-1'>
+                            <img
+                                src='https://picsum.photos/id/237/200/300'
+                                className='flex-1 h-[150px] cover'
+                            />
+                            <img
+                                src='https://picsum.photos/id/237/200/300'
+                                className='flex-1 h-[150px] cover'
+                            />
+                            <img
+                                src='https://picsum.photos/id/237/200/300'
+                                className='flex-1 h-[150px] cover'
+                            />
                         </div>
                     )}
+                </div>
+                <div className='px-2'>
+                    <button className='w-full text-white bg-blue-500 text-center rounded-md py-1 '>
+                        {isFollower ? "Follow back" : "Follow"}
+                    </button>
                 </div>
             </div>
         </Popover>

@@ -1,5 +1,16 @@
 import highlights_data from "../utility/MOCK_DATA_HIGHLIGHT";
+import { useState } from "react";
+import ViewStory from "./ViewStory";
 const Highlights = () => {
+    const [showStoryModal, setShowStoryModal] = useState<boolean>(false);
+    const handleStoryModalOpen = () => {
+        setShowStoryModal(!showStoryModal);
+    };
+
+    const handleStoryModalClose = () => {
+        setShowStoryModal(false);
+    };
+
     const display_highlight = highlights_data.map((items) => (
         <div
             key={items.username}
@@ -15,9 +26,18 @@ const Highlights = () => {
             <p className='max-w-[75px] text-center'>{items.username}</p>
         </div>
     ));
+
     return (
-        <div className='w-screen sm:max-w-[500px] overflow-auto overscroll-x-auto scrollbar-hide'>
-            <div className='flex gap-1 w-fit over'>{display_highlight}</div>
+        <div className='w-full md:max-w-[600px] overflow-auto overscroll-x-auto scrollbar-hide pl-5 md:pl-0 md:pr-0 pr-3'>
+            <div onClick={handleStoryModalOpen} className='flex gap-1 w-fit'>
+                {display_highlight}
+            </div>
+            {showStoryModal && (
+                <ViewStory
+                    handleStoryModalClose={handleStoryModalClose}
+                    showStoryModal={showStoryModal}
+                />
+            )}
         </div>
     );
 };

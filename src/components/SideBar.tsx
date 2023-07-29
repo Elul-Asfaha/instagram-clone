@@ -42,11 +42,11 @@ const SideBar = ({ profileName, username }: suggested) => {
             </div>
 
             <div className='flex justify-between items-center py-3 font-medium'>
-                <p className='text-gray-500 '>Suggested for you</p>{" "}
-                <p className='text-sm'>See All</p>
+                <p className='text-gray-400 '>Suggested for you</p>{" "}
+                <p className='text-sm hover:text-gray-400'>See All</p>
             </div>
             <div>{diplaySuggestions}</div>
-            <p className='flex items-center gap-1 text-gray-600 text-sm mt-5'>
+            <p className='flex items-center gap-1 text-gray-400 text-sm mt-5'>
                 <LiaCopyright />
                 2023 INSTAGRAM FROM META
             </p>

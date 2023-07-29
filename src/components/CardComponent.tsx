@@ -134,12 +134,10 @@ const CardComponent = ({
             </Box>
 
             <Box sx={{ display: "flex", gap: 2 }}>
-                <Typography>
-                    <p className='text-sm'>
-                        <span className='font-bold'>{profile_name} </span>
-                        {caption}
-                    </p>
-                </Typography>
+                <p className='text-sm'>
+                    <span className='font-bold'>{profile_name} </span>
+                    {caption}
+                </p>
             </Box>
             <Box>
                 <span className='cursor-pointer'>
