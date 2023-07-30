@@ -25,8 +25,8 @@ function App() {
             >
                 <Menu />
                 <Routes>
+                    <Route path='/profile/:id' element={<Profile />} />
                     <Route path='/' element={<Feed />} />
-                    <Route path='/profile' element={<Profile />} />
                 </Routes>
                 {newPostToggle && <Create />}
             </newPostContext.Provider>

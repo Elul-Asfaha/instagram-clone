@@ -16,7 +16,7 @@ const Feed = () => {
         />
     ));
     return (
-        <div className='w-full lg:ml-[340px] flex justify-center gap-[100px] pt-[10px] md:pt-[50px]'>
+        <div className='w-full px-[1px] lg:ml-[340px] flex justify-center gap-[100px] pt-[10px] md:pt-[50px]'>
             <div className='w-full lg:w-fit flex flex-col items-center gap-y-5 h-fit'>
                 <Highlights />
                 {disp_Data}

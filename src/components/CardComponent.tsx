@@ -42,7 +42,7 @@ const CardComponent = ({
     };
 
     return (
-        <div className='w-screen sm:max-w-[345px] md:max-w-[450px] min-h-[600px] border-b rounded-sm'>
+        <div className='w-full sm:max-w-[345px] md:max-w-[450px] min-h-[600px] border-b rounded-sm'>
             <Box
                 sx={{
                     display: "flex",
