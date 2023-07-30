@@ -7,12 +7,12 @@ const ProfileDisplayComponentMedia = ({
     display,
 }: ProfileDisplayComponentMediaTypes) => {
     const displayPosts = posts.map((items) => (
-        <div className='flex-1 flex h-[300px]'>
+        <div className='flex-1 flex h-[120px] md:h-[300px]'>
             <img src={items.posts} alt='' className='container' />
         </div>
     ));
     const displaytagged = tagged.map((items) => (
-        <div className='flex-1 flex h-[300px]'>
+        <div className='flex-1 flex h-[120px] md:h-[300px]'>
             <img src={items.posts} alt='' className='container' />
         </div>
     ));

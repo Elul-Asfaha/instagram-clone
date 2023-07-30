@@ -15,11 +15,12 @@ const Highlights = () => {
         <div
             key={items.username}
             className='flex-1 flex flex-col max-w-[75px] overflow-x-hidden'
+            onClick={handleStoryModalOpen}
         >
             <div className='flex w-[75px] h-[75px] p-2'>
                 <img
                     src={items.story_image}
-                    className='rounded-full outline outline-2 outline-offset-2  container '
+                    className='rounded-full outline outline-2 outline-offset-2 container '
                     alt={items.username}
                 />
             </div>
@@ -28,8 +29,8 @@ const Highlights = () => {
     ));
 
     return (
-        <div className='w-full md:max-w-[600px] overflow-auto overscroll-x-auto scrollbar-hide pl-5 md:pl-0 md:pr-0 pr-3'>
-            <div onClick={handleStoryModalOpen} className='flex gap-1 w-fit'>
+        <div className='w-full md:max-w-[600px] overflow-auto overscroll-x-auto scrollbar-hide'>
+            <div className='flex gap-1 w-fit pl-2 md:pl-0 md:pr-0 pr-3'>
                 {display_highlight}
             </div>
             {showStoryModal && (

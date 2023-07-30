@@ -17,7 +17,7 @@ const Menu = () => {
         { name: "Discover", icon: <FaRegCompass /> },
         { name: "Messages", icon: <FiMessageSquare /> },
         { name: "Notifications", icon: <AiOutlineHeart /> },
-        { name: "Create", icon: <CiSquarePlus />, navigation: "profile/" },
+        { name: "Create", icon: <CiSquarePlus /> },
     ];
     const [currentLink, setCurrentLink] = useState<string>("Home");
 

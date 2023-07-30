@@ -10,7 +10,7 @@ const ProfileDisplayComponent = () => {
             <div className='flex gap-10'>
                 <p
                     onClick={() => setDisplayState("posts")}
-                    className={`cursor-pointer  py-3 ${
+                    className={`cursor-pointer  py-1 md:py-3 ${
                         displayState === "posts"
                             ? "border-t-2 border-black"
                             : ""
@@ -20,7 +20,7 @@ const ProfileDisplayComponent = () => {
                 </p>
                 <p
                     onClick={() => setDisplayState("saved")}
-                    className={`cursor-pointer  py-3 ${
+                    className={`cursor-pointer  py-1 md:py-3 ${
                         displayState === "saved"
                             ? "border-t-2 border-black"
                             : ""
@@ -30,7 +30,7 @@ const ProfileDisplayComponent = () => {
                 </p>
                 <p
                     onClick={() => setDisplayState("tagged")}
-                    className={`cursor-pointer  py-3 ${
+                    className={`cursor-pointer  py-1 md:py-3 ${
                         displayState === "tagged"
                             ? "border-t-2 border-black"
                             : ""
