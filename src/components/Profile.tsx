@@ -18,7 +18,7 @@ const Profile = () => {
                             <p className='bg-gray-300 px-3 py-1 rounded-md'>
                                 View archive
                             </p>
-                            <div className='flex h-full items-center justify-center p-1'>
+                            <div className='flex h-fit md:h-full items-center justify-center p-1'>
                                 <BsGearWide />
                             </div>
                         </div>
