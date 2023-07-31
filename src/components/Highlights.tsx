@@ -26,7 +26,7 @@ const Highlights = () => {
                 {loaded ? (
                     <img
                         src={items.story_image}
-                        className='rounded-full outline outline-2 outline-offset-2 container '
+                        className='rounded-full outline outline-2 outline-offset-2 container bg-gray-100'
                         alt={items.username}
                     />
                 ) : (
