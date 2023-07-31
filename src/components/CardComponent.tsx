@@ -6,9 +6,11 @@ import { HiOutlineChatBubbleLeft } from "react-icons/hi2";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { useState } from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { Box } from "@mui/material";
+import { Box, Skeleton } from "@mui/material";
 import { BsSend } from "react-icons/bs";
 import { GoBookmarkFill, GoBookmark } from "react-icons/go";
+import { useEffect } from "react";
+
 type cardData = {
     profile_image: string;
     profile_name: string;
@@ -31,6 +33,7 @@ const CardComponent = ({
     const [bookmarked, setBookmarked] = useState<boolean>(false);
     const time = 14;
     const [newComment, setNewComment] = useState<string>("");
+    const [loaded, setLoaded] = useState<boolean>(false);
     const handleLike = () => {
         liked
             ? setLikeCount((prev) => prev - 1)
@@ -41,8 +44,11 @@ const CardComponent = ({
         setBookmarked(!bookmarked);
     };
 
+    useEffect(() => {
+        setTimeout(() => setLoaded(true), 2000);
+    }, []);
     return (
-        <div className='w-full sm:max-w-[345px] md:max-w-[450px] min-h-[600px] border-b rounded-sm'>
+        <div className='w-full sm:max-w-[345px] md:max-w-[450px] min-h-[500px] border-b rounded-sm'>
             <Box
                 sx={{
                     display: "flex",
@@ -57,20 +63,28 @@ const CardComponent = ({
                         alignItems: "center",
                     }}
                 >
-                    <CardMedia
-                        sx={{
-                            height: "30px",
-                            width: "30px",
-                            borderRadius: "50%",
-                        }}
-                        image={profile_image}
-                        title='name of page'
-                    />
+                    {loaded ? (
+                        <CardMedia
+                            sx={{
+                                height: "30px",
+                                width: "30px",
+                                borderRadius: "50%",
+                            }}
+                            image={profile_image}
+                            title='name of page'
+                        />
+                    ) : (
+                        <Skeleton variant='circular' width={30} height={30} />
+                    )}
 
                     <Typography>
-                        <span className='font-bold'>{profile_name}</span>
+                        <span className='font-bold'>
+                            {loaded ? profile_name : <Skeleton width={100} />}
+                        </span>
                     </Typography>
-                    <Typography>{time}</Typography>
+                    <Typography>
+                        {loaded ? time : <Skeleton width={20} />}
+                    </Typography>
                 </Box>
                 <CardActions>
                     <IconButton aria-label='Comments'>
@@ -78,11 +92,20 @@ const CardComponent = ({
                     </IconButton>
                 </CardActions>
             </Box>
-            <CardMedia
-                sx={{ height: 500, borderRadius: "3px" }}
-                image={profile_image}
-                title={profile_name}
-            />
+            {loaded ? (
+                <CardMedia
+                    sx={{ height: 500, borderRadius: "3px" }}
+                    image={profile_image}
+                    title={profile_name}
+                />
+            ) : (
+                <Skeleton
+                    variant='rectangular'
+                    height={400}
+                    sx={{ borderRadius: "3px" }}
+                />
+            )}
+
             <Box
                 sx={{
                     display: "flex",
@@ -119,11 +142,15 @@ const CardComponent = ({
             </Box>
 
             <Box sx={{ display: "flex", gap: 1 }}>
-                <CardMedia
-                    sx={{ height: 20, width: 20, borderRadius: "50%" }}
-                    image={profile_image}
-                    title='profile'
-                />
+                {loaded ? (
+                    <CardMedia
+                        sx={{ height: 20, width: 20, borderRadius: "50%" }}
+                        image={profile_image}
+                        title='profile'
+                    />
+                ) : (
+                    <Skeleton variant='circular' width={20} height={20} />
+                )}
                 <Typography>
                     Liked by <span className='font-bold'>{user_name}</span> and
                     <span> </span>
@@ -133,16 +160,36 @@ const CardComponent = ({
                 </Typography>
             </Box>
 
-            <Box sx={{ display: "flex", gap: 2 }}>
-                <p className='text-sm'>
-                    <span className='font-bold'>{profile_name} </span>
-                    {caption}
-                </p>
+            <Box>
+                {loaded ? (
+                    <p className='text-sm'>
+                        <span className='font-bold'>{profile_name}</span>{" "}
+                        {caption}
+                    </p>
+                ) : (
+                    <div>
+                        <div className='flex gap-[3%]'>
+                            <p className='w-[20%]'>
+                                <Skeleton sx={{ fontSize: "1.5rem" }} />
+                            </p>
+                            <p className='w-[78%]'>
+                                <Skeleton sx={{ fontSize: "1.5rem" }} />
+                            </p>
+                        </div>
+                        <Skeleton variant='rectangular' height={60} />
+                    </div>
+                )}
             </Box>
             <Box>
-                <span className='cursor-pointer'>
-                    View all {comments} comments
-                </span>
+                <p className='cursor-pointer flex items-center gap-1'>
+                    View all{" "}
+                    {loaded ? (
+                        comments
+                    ) : (
+                        <Skeleton width={25} sx={{ fontSize: "1rem" }} />
+                    )}{" "}
+                    comments
+                </p>
             </Box>
             <Box
                 sx={{

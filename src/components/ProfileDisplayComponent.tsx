@@ -1,6 +1,9 @@
 import { useState } from "react";
 import ProfileDisplayComponentMedia from "./ProfileDisplayComponentMedia";
-const ProfileDisplayComponent = () => {
+type ProfileDispCompType = {
+    loaded: boolean;
+};
+const ProfileDisplayComponent = ({ loaded }: ProfileDispCompType) => {
     const [displayState, setDisplayState] = useState<string>("posts");
     return (
         <div
@@ -39,7 +42,10 @@ const ProfileDisplayComponent = () => {
                     tagged
                 </p>
             </div>
-            <ProfileDisplayComponentMedia display={displayState} />
+            <ProfileDisplayComponentMedia
+                display={displayState}
+                loaded={loaded}
+            />
         </div>
     );
 };

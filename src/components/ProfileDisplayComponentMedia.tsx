@@ -1,19 +1,45 @@
+import { Skeleton } from "@mui/material";
 import posts from "../utility/MOCK_DATA_POSTS";
 import tagged from "../utility/MOCK_DATA_TAGGED";
 type ProfileDisplayComponentMediaTypes = {
     display: string;
+    loaded: boolean;
 };
 const ProfileDisplayComponentMedia = ({
     display,
+    loaded,
 }: ProfileDisplayComponentMediaTypes) => {
     const displayPosts = posts.map((items) => (
         <div className='flex-1 flex h-[120px] md:h-[250px]'>
-            <img src={items.posts} alt='' className='container' />
+            {loaded ? (
+                <img src={items.posts} alt='' className='container' />
+            ) : (
+                <Skeleton variant='rectangular' height={120} sx={{ flex: 1 }} />
+            )}
         </div>
     ));
     const displaytagged = tagged.map((items) => (
         <div className='flex-1 flex h-[120px] md:h-[250px]'>
-            <img src={items.posts} alt='' className='container' />
+            {loaded ? (
+                <img src={items.posts} alt='' className='container' />
+            ) : (
+                <div>
+                    <div className='hidden md:block'>
+                        <Skeleton
+                            variant='rectangular'
+                            height={250}
+                            sx={{ flex: 1 }}
+                        />
+                    </div>
+                    <div className='block md:hidden'>
+                        <Skeleton
+                            variant='rectangular'
+                            height={120}
+                            sx={{ flex: 1 }}
+                        />
+                    </div>
+                </div>
+            )}
         </div>
     ));
     return (
