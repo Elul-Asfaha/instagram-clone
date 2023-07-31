@@ -1,10 +1,15 @@
 import { BsGearWide } from "react-icons/bs";
 import ProfileDisplayComponent from "./ProfileDisplayComponent";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Skeleton } from "@mui/material";
 const Profile = () => {
     const profile = "https://picsum.photos/id/237/200/300";
-    const [loaded, setLoaded] = useState<boolean>(true);
+    const [loaded, setLoaded] = useState<boolean>(false);
+    useEffect(() => {
+        setTimeout(() => {
+            setLoaded(true);
+        }, 2000);
+    }, []);
     return (
         <div className='w-full lg:ml-[340px] flex justify-center gap-[100px] pt-[10px] md:pt-[50px] md:pl-[73px]'>
             <div className='w-full max-w-[1000px] flex flex-col gap-5 md:gap-10'>

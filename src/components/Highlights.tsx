@@ -6,7 +6,9 @@ const Highlights = () => {
     const [showStoryModal, setShowStoryModal] = useState<boolean>(false);
     const [loaded, setLoaded] = useState<boolean>(false);
     useEffect(() => {
-        // setLoaded(true);
+        setTimeout(() => {
+            setLoaded(true);
+        }, 2000);
     }, []);
     const handleStoryModalOpen = () => {
         setShowStoryModal(!showStoryModal);
