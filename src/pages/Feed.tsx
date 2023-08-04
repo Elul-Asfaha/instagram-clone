@@ -1,7 +1,7 @@
-import CardComponent from "./CardComponent.tsx";
+import CardComponent from "../components/CardComponent.tsx";
 import data from "../utility/MOCK_DATA.tsx";
-import SideBar from "./SideBar.tsx";
-import Highlights from "./Highlights.tsx";
+import SideBar from "../components/SideBar.tsx";
+import Highlights from "../components/Highlights.tsx";
 
 const Feed = () => {
     const disp_Data = data.map((items, id) => (
@@ -16,7 +16,7 @@ const Feed = () => {
         />
     ));
     return (
-        <div className='w-full px-[1px] lg:ml-[340px] flex justify-center gap-[100px] pt-[10px] md:pt-[50px]'>
+        <div className='w-full lg:ml-[340px] flex justify-center gap-[100px] pt-[10px] md:pt-[50px] md:pl-[73px]'>
             <div className='w-full lg:w-fit flex flex-col items-center gap-y-5 h-fit'>
                 <Highlights />
                 {disp_Data}

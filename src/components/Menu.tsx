@@ -6,7 +6,7 @@ import { FiMessageSquare } from "react-icons/fi";
 import NavItems from "./NavItems";
 import { useContext, useState } from "react";
 
-import SettingsComponent from "./SettingsComponent";
+import SettingsBurgerComponent from "./SettingsBurgerComponent";
 import { newPostContext } from "../App";
 
 const Menu = () => {
@@ -76,7 +76,7 @@ const Menu = () => {
                     </div>
                 </div>
 
-                <SettingsComponent active={currentLink} />
+                <SettingsBurgerComponent active={currentLink} />
             </div>
         </div>
     );

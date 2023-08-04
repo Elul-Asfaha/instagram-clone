@@ -21,14 +21,14 @@ const Highlights = () => {
     const display_highlight = highlights_data.map((items) => (
         <div
             key={items.username}
-            className='flex-1 flex flex-col items-center [75px] py-1 overflow-x-hidden'
+            className='flex-1 flex flex-col mx-2 items-center w-fit h-fit py-1 overflow-x-hidden '
             onClick={handleStoryModalOpen}
         >
-            <div className='flex w-[75px] h-[75px] mx-2'>
+            <div className='flex h-[75px] w-[75px] rounded-full'>
                 {loaded ? (
                     <img
                         src={items.story_image}
-                        className='rounded-full outline outline-2 outline-offset-2 container bg-gray-100'
+                        className='rounded-full  cover bg-gray-100'
                         alt={items.username}
                     />
                 ) : (
