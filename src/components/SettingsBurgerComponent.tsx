@@ -6,17 +6,18 @@ import { ClickAwayListener } from "@mui/material";
 import { BsGearWide } from "react-icons/bs";
 import { CiTimer } from "react-icons/ci";
 import { BiBookmark } from "react-icons/bi";
-type SettingsComponentProps = {
+import { Link } from "react-router-dom";
+type SettingsBurgerComponentProps = {
     active: string;
 };
 
-const settingOptions1 = [
-    { name: "Settings", icons: <BsGearWide /> },
-    { name: "Your Activity", icons: <CiTimer /> },
-    { name: "Saved", icons: <BiBookmark /> },
+const settingBurgerOptions = [
+    { name: "Settings", icons: <BsGearWide />, link: "/accounts" },
+    { name: "Your Activity", icons: <CiTimer />, link: "/activity" },
+    { name: "Saved", icons: <BiBookmark />, link: "/saved" },
 ];
 
-const SettingsComponent = ({ active }: SettingsComponentProps) => {
+const SettingsBurgerComponent = ({ active }: SettingsBurgerComponentProps) => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -27,11 +28,15 @@ const SettingsComponent = ({ active }: SettingsComponentProps) => {
     };
     const open = Boolean(anchorEl);
     const id = open ? "simple-popper" : undefined;
-    const displaySettingsOpetions1 = settingOptions1.map((items) => (
-        <div className='flex items-center text-md gap-2 py-3 rounded-md px-4 hover:bg-gray-100'>
+    const displaySettingsBurgerOptions = settingBurgerOptions.map((items) => (
+        <Link
+            to={items.link}
+            key={items.name}
+            className='flex items-center text-md gap-2 py-3 rounded-md px-4 hover:bg-gray-100'
+        >
             <div>{items.icons}</div>
             <p>{items.name}</p>
-        </div>
+        </Link>
     ));
     return (
         <ClickAwayListener onClickAway={handleClickAway}>
@@ -52,7 +57,7 @@ const SettingsComponent = ({ active }: SettingsComponentProps) => {
                 >
                     <div className='w-fit text-l flex flex-col gap-1 bg-gray-100 min-w-[295px] overflow-hidden rounded-lg shadow-xl'>
                         <div className='flex flex-col p-1 bg-white'>
-                            {displaySettingsOpetions1}
+                            {displaySettingsBurgerOptions}
                         </div>
 
                         <div className='bg-white p-2'>
@@ -70,4 +75,4 @@ const SettingsComponent = ({ active }: SettingsComponentProps) => {
     );
 };
 
-export default SettingsComponent;
+export default SettingsBurgerComponent;

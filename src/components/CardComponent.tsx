@@ -10,6 +10,7 @@ import { Box, Skeleton } from "@mui/material";
 import { BsSend } from "react-icons/bs";
 import { GoBookmarkFill, GoBookmark } from "react-icons/go";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 type cardData = {
     profile_image: string;
@@ -78,9 +79,9 @@ const CardComponent = ({
                     )}
 
                     <Typography>
-                        <span className='font-bold'>
+                        <Link to={`/${profile_name}`} className='font-bold'>
                             {loaded ? profile_name : <Skeleton width={100} />}
-                        </span>
+                        </Link>
                     </Typography>
                     <Typography>
                         {loaded ? time : <Skeleton width={20} />}
