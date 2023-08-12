@@ -10,8 +10,6 @@ const Profile = () => {
     const [userProfile, setUserProfile] = useState<boolean>(false);
     const providedData = useContext(userContext);
     useEffect(() => {
-        
-
         id === providedData.user
             ? setUserProfile(true) // if its true it displays users own profile
             : setUserProfile(false); // if its false it displays the user profile provided by the params
@@ -23,9 +21,11 @@ const Profile = () => {
 
     return (
         <div className='w-full lg:ml-[340px] flex justify-center gap-[100px] pt-[10px] md:pt-[50px] md:pl-[73px]'>
-            {
-                userProfile?<SelfProfile loaded={loaded} profile={profile}/>:<ViewProfile loaded={loaded} profile={profile}/>
-            }
+            {userProfile ? (
+                <SelfProfile loaded={loaded} profile={profile} />
+            ) : (
+                <ViewProfile loaded={loaded} profile={profile} />
+            )}
         </div>
     );
 };

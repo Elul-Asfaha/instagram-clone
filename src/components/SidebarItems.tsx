@@ -47,7 +47,10 @@ const SidebarItems = ({
                         <img src={profileImage} alt='' className='cover' />
                     </div>
                 </div>
-                <Link to={`profile/${username}`} className='flex flex-col w-full'>
+                <Link
+                    to={`profile/${username}`}
+                    className='flex flex-col w-full'
+                >
                     <p className='font-bold'>{username}</p> <p> {fullName}</p>
                 </Link>
                 <button className='w-fit text-blue-700 text-right'>

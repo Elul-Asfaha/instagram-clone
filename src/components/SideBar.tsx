@@ -35,7 +35,10 @@ const SideBar = ({ profileName, username }: suggested) => {
                         />
                     </div>
                 </div>
-                <Link to={`/profile/elul_asfaha`} className='flex flex-col w-full text-sm'>
+                <Link
+                    to={`/profile/elul_asfaha`}
+                    className='flex flex-col w-full text-sm'
+                >
                     <p className='font-bold'>{username}</p>{" "}
                     <p> {profileName}</p>
                 </Link>
