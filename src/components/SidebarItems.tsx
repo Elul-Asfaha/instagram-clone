@@ -1,6 +1,7 @@
 import BreifPreview from "./BreifPreview";
 import React from "react";
 import Box from "@mui/material/Box";
+import { Link } from "react-router-dom";
 type sideBarItemTypes = {
     username: string;
     fullName: string;
@@ -46,9 +47,9 @@ const SidebarItems = ({
                         <img src={profileImage} alt='' className='cover' />
                     </div>
                 </div>
-                <div className='flex flex-col w-full'>
+                <Link to={`profile/${username}`} className='flex flex-col w-full'>
                     <p className='font-bold'>{username}</p> <p> {fullName}</p>
-                </div>
+                </Link>
                 <button className='w-fit text-blue-700 text-right'>
                     {isFollower ? "Follow back" : "Follow"}
                 </button>

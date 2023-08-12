@@ -2,8 +2,9 @@ import { useState } from "react";
 import ProfileDisplayComponentMedia from "./ProfileDisplayComponentMedia";
 type ProfileDispCompType = {
     loaded: boolean;
+    viewing?: string
 };
-const ProfileDisplayComponent = ({ loaded }: ProfileDispCompType) => {
+const ProfileDisplayComponent = ({ loaded,viewing }: ProfileDispCompType) => {
     const [displayState, setDisplayState] = useState<string>("posts");
     return (
         <div
@@ -21,7 +22,7 @@ const ProfileDisplayComponent = ({ loaded }: ProfileDispCompType) => {
                 >
                     posts
                 </p>
-                <p
+                {viewing !="other" && <p
                     onClick={() => setDisplayState("saved")}
                     className={`cursor-pointer  py-1 md:py-3 ${
                         displayState === "saved"
@@ -31,6 +32,7 @@ const ProfileDisplayComponent = ({ loaded }: ProfileDispCompType) => {
                 >
                     saved
                 </p>
+                }
                 <p
                     onClick={() => setDisplayState("tagged")}
                     className={`cursor-pointer  py-1 md:py-3 ${

@@ -12,7 +12,7 @@ type SettingsBurgerComponentProps = {
 };
 
 const settingBurgerOptions = [
-    { name: "Settings", icons: <BsGearWide />, link: "/accounts" },
+    { name: "Settings", icons: <BsGearWide />, link: "accounts" },
     { name: "Your Activity", icons: <CiTimer />, link: "/activity" },
     { name: "Saved", icons: <BiBookmark />, link: "/saved" },
 ];
