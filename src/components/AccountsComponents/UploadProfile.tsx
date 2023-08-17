@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { MdKeyboardBackspace, MdPermMedia } from "react-icons/md";
 import Modal from "@mui/material/Modal";
