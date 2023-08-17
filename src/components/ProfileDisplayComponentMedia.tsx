@@ -38,7 +38,7 @@ const ProfileDisplayComponentMedia = ({
             {loaded ? (
                 <img src={items.posts} alt='' className='container' />
             ) : (
-                <div className='flex-1 flex'>
+                <div className='flex-1 flex h-[250px]'>
                     <div className='flex flex-1 md:block'>
                         <Skeleton
                             variant='rectangular'

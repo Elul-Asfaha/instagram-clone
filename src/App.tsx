@@ -19,7 +19,7 @@ export const userContext = createContext<UserProviderType | null>(null);
 
 function App() {
     const [newPostToggle, setNewPostToggle] = useState<boolean>(false);
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState("elul_asfaha");
     const handleNewPostInvalid = () => {
         setNewPostToggle(false);
     };
@@ -27,7 +27,7 @@ function App() {
         setNewPostToggle(true);
     };
     return (
-        <div className='flex'>
+        <div className='flex min-h-screen'>
             <userContext.Provider value={{ user }}>
                 <newPostContext.Provider
                     value={{ handleNewPostInvalid, handleNewPostValid }}

@@ -19,17 +19,16 @@ const Highlights = () => {
     };
 
     const display_highlight = highlights_data.map((items) => (
-        <div
+        <button
             key={items.username}
-            className='flex-1 flex flex-col mx-2 items-center w-fit h-fit py-1 overflow-x-hidden '
+            className='flex-1 flex flex-col mx-2 items-center w-fit h-fit overflow-hidden'
             onClick={handleStoryModalOpen}
         >
-            <div className='flex h-[75px] w-[75px] rounded-full'>
+            <div className='flex h-[75px] w-[75px] rounded-full overflow-hidden'>
                 {loaded ? (
                     <img
                         src={items.story_image}
-                        className='rounded-full  cover bg-gray-100'
-                        alt={items.username}
+                        className='rounded-full container bg-gray-100'
                     />
                 ) : (
                     <Skeleton variant='circular' width={75} height={75} />
@@ -38,7 +37,7 @@ const Highlights = () => {
             <p className='max-w-[75px] text-center'>
                 {loaded ? items.username : <Skeleton sx={{ width: "75px" }} />}
             </p>
-        </div>
+        </button>
     ));
     useEffect(() => {
         setTimeout(() => setLoaded(true), 2000);

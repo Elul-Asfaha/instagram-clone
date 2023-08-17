@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import suggestions from "../utility/MOCK_DATA_SUGGESTIONS";
 import SidebarItems from "./SidebarItems";
 import { LiaCopyright } from "react-icons/lia";
@@ -34,10 +35,13 @@ const SideBar = ({ profileName, username }: suggested) => {
                         />
                     </div>
                 </div>
-                <div className='flex flex-col w-full text-sm'>
+                <Link
+                    to={`/profile/elul_asfaha`}
+                    className='flex flex-col w-full text-sm'
+                >
                     <p className='font-bold'>{username}</p>{" "}
                     <p> {profileName}</p>
-                </div>
+                </Link>
                 <div className='w-fit text-blue-500'>switch</div>
             </div>
 
