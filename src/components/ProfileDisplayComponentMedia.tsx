@@ -15,7 +15,7 @@ const ProfileDisplayComponentMedia = ({
                 <img src={items.posts} alt='' className='container' />
             ) : (
                 <div className='flex-1 flex h-[250px]'>
-                    <div className='flex flex-1 md:block'>
+                    <div className='hidden flex-1 md:block'>
                         <Skeleton
                             variant='rectangular'
                             height={250}
@@ -39,7 +39,7 @@ const ProfileDisplayComponentMedia = ({
                 <img src={items.posts} alt='' className='container' />
             ) : (
                 <div className='flex-1 flex h-[250px]'>
-                    <div className='flex flex-1 md:block'>
+                    <div className='hidden flex-1 md:block'>
                         <Skeleton
                             variant='rectangular'
                             height={250}
