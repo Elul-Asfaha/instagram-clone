@@ -12,6 +12,7 @@ type PostProviderType = {
 };
 type UserProviderType = {
     user: string;
+    setUser: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export const newPostContext = createContext<PostProviderType | null>(null);
@@ -28,9 +29,12 @@ function App() {
     };
     return (
         <div className='flex min-h-screen'>
-            <userContext.Provider value={{ user }}>
+            <userContext.Provider value={{ user, setUser }}>
                 <newPostContext.Provider
-                    value={{ handleNewPostInvalid, handleNewPostValid }}
+                    value={{
+                        handleNewPostInvalid,
+                        handleNewPostValid,
+                    }}
                 >
                     <Menu />
                     <Routes>

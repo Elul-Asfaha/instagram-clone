@@ -10,7 +10,7 @@ const Profile = () => {
     const [userProfile, setUserProfile] = useState<boolean>(false);
     const providedData = useContext(userContext);
     useEffect(() => {
-        id === providedData.user
+        id === providedData?.user
             ? setUserProfile(true) // if its true it displays users own profile
             : setUserProfile(false); // if its false it displays the user profile provided by the params
 
